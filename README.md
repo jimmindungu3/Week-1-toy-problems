@@ -25,7 +25,7 @@ A simple program to take the marks scored by a student and return a grade. The p
 
 ## INSTALLATION
 1. Open terminal and clone the repository at 
-        git@github.com:jimmindungu3/Week-1-toy-problems.git
+        [git@github.com:jimmindungu3/Week-1-toy-problems.git]
 
 2. Navigate to the project repository and cd into the programs folder
         cd Week-1-toy-problems
