@@ -72,7 +72,7 @@ const nhifContribution = nhifCalculator(grossSalary);
 
 
 
-//  calculate NSSF deduction. 6% of pensionable pay(basic salary). NSSF deduction is capped at 6000 
+//  Calculate NSSF deduction. 6% of pensionable pay(basic salary). NSSF deduction is capped at 6000 
 function nssfCalculator(basicSalary) {
 
     let nssfContribution;
@@ -117,7 +117,7 @@ function calculateGrossTax(taxableIncome) {
 const grossTax = calculateGrossTax(taxableIncome);
 
 
-
+// calculate PAYE
 function getPAYE(grossTax) {
     let paye;
     let personalRelief = 2400;
@@ -131,7 +131,7 @@ function getPAYE(grossTax) {
 const PAYE = getPAYE(grossTax);
 
 
-
+// Calculate net salary
 function calculateNetSalary(grossSalary, PAYE, nssfContribution, nhifContribution) {
     let netSal;
     netSal = grossSalary - (PAYE + nssfContribution + nhifContribution);
@@ -141,7 +141,7 @@ const netSalary = calculateNetSalary(grossSalary, PAYE, nssfContribution, nhifCo
 
 
 
-// Calling the functions to get all the returns
+// Call the functions to get all the returns
 grossSalaryCalculator(basicSalary, benefits);
 nhifCalculator(grossSalary);
 nssfCalculator(basicSalary);
