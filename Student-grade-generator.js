@@ -6,7 +6,8 @@
 
 function studentGradeGenerator(studentScore) {
     if (studentScore < 0 || studentScore > 100) {       // This line of code checks if studentScore is a valid score.
-        return "Invalid marks! Marks should range from 0 to 100"
+        console.log("Invalid marks! Marks should range from 0 to 100");
+        return; // The return keyword prevents the function from executing further as the marks entered are invalid.
     } else if (studentScore < 40) {
         studentGrade = "E";
     } else if (studentScore <= 49) {
@@ -17,6 +18,6 @@ function studentGradeGenerator(studentScore) {
         studentGrade = "B";
     } else
         studentGrade = "A";
-    // console.log(studentGrade); // This line is commented out. It will print studentGrade to the console when uncommented.
+    console.log(studentGrade); // This line is commented out. When uncommented, it will print studentGrade to the console .
 }
-studentGradeGenerator(); // This line invokes the function studentGradeGenerator. StudentScore is passed as an argument in the brackets.
+studentGradeGenerator(77); // This line invokes the function studentGradeGenerator. StudentScore is passed as an argument in the brackets. in this case 75.
