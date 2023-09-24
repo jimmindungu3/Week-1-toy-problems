@@ -27,7 +27,7 @@ A simple program to take the marks scored by a student and return a grade. The p
 1. Open terminal and clone the repository at 
         [git@github.com:jimmindungu3/Week-1-toy-problems.git]
 
-2. Navigate to the project repository and cd into the programs folder
+2. Navigate to the project repository and cd into the programs folder:
         cd Week-1-toy-problems
 
 3. Enter "code ." in the terminal to open the folder in VS Code. The command may be different depending on the code editor you use.
@@ -38,10 +38,10 @@ A simple program to take the marks scored by a student and return a grade. The p
 Contributions are welcome. To contribute, follow the following steps:
 
 1. Fork the repository
-2. Create a new branch with the command "git checkout -b feature/your-feature" without the quotes.
+2. Create a new branch with the command: git checkout -b feature/your-feature
 3. Make changes
-4. Commit your changes with "git commit -m 'Add some feature" 
-5. Push your changes with "git push origin feature/your-feature"
+4. Commit your changes with: git commit -m 'Add some feature
+5. Push your changes with: git push origin feature/your-feature
 5. Create a pull request.
 6. You may consider to update tests as appropriate.
 
