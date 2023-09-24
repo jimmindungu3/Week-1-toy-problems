@@ -1,14 +1,13 @@
-let basicSalary = 50000
-benefits = 15000
+let basicSalary = 200000
+let benefits = 50000
 
 
 // Calculate gross salary
 function grossSalaryCalculator(basicSalary, benefits) {
-    let grossSalary;
-    grossSalary = basicSalary + benefits;
-    return grossSalary;
+    let grossSal = basicSalary + benefits;
+    return grossSal;
 }
-const grossSalary = grossSalaryCalculator();
+const grossSalary = grossSalaryCalculator(basicSalary, benefits);
 
 
 
@@ -73,7 +72,7 @@ const nhifContribution = nhifCalculator(grossSalary);
 
 
 
-//  calculate NSSF deduction. 6% of pensionable pay. NSSF deduction is capped at 6000 
+//  calculate NSSF deduction. 6% of pensionable pay(basic salary). NSSF deduction is capped at 6000 
 function nssfCalculator(basicSalary) {
 
     let nssfContribution;
@@ -100,47 +99,57 @@ const taxableIncome = calculateTaxableIncome(grossSalary, nhifContribution, nssf
 
 
 // Calculate PAYE
-function calculatePAYE(taxableIncome) {
-   let personalRelief = 2400;
+function calculateGrossTax(taxableIncome) {
+
    let grossTax;
     if (taxableIncome <= 24000) {
         grossTax = taxableIncome * 0.1;
     } else if (taxableIncome <= 32333) {
-        grossTax = 24000 * 0.1 + (taxableIncome - 24000) * 0.25;
+        grossTax = (24000 * 0.1 + (taxableIncome - 24000) * 0.25);
     } else if (taxableIncome <= 500000) {
-        grossTax = 24000 * 0.1 + 8333 * 0.25 + (taxableIncome-32333) * 0.3;
+        grossTax = (24000 * 0.1 + 8333 * 0.25 + (taxableIncome-32333) * 0.3);
     } else if (taxableIncome <= 800000) {
-        grossTax = 24000 * 0.1 + 8333 * 0.25 + 467667 * 0.3 + (taxableIncome - 500000) * 0.325;
+        grossTax = (24000 * 0.1 + 8333 * 0.25 + 467667 * 0.3 + (taxableIncome - 500000) * 0.325);
     } else
-        grossTax = 24000 * 0.1 + 8333 * 0.25 + 467667 * 0.3 + 467667 * 0.325 + (taxableIncome - 800000) * 0.35
-    
-    const PAYE = grossTax - personalRelief;
-    return PAYE;
+        grossTax = (24000 * 0.1 + 8333 * 0.25 + 467667 * 0.3 + 467667 * 0.325 + (taxableIncome - 800000) * 0.35); 
+    return grossTax
 }
-const PAYE = calculatePAYE(taxableIncome);
+const grossTax = calculateGrossTax(taxableIncome);
 
 
 
+function getPAYE(grossTax) {
+    let paye;
+    let personalRelief = 2400;
 
-function calculateNetSalary(grossSalary, paye) {
-    let netSalary;
-    netSalary = grossSalary - paye;
-    return netSalary;
+    if (grossTax <= personalRelief) {
+        paye = 0;
+    } else
+        paye = grossTax - personalRelief;
+    return paye;
 }
-const netSalary = calculateNetSalary(grossSalary, PAYE);
+const PAYE = getPAYE(grossTax);
 
 
 
+function calculateNetSalary(grossSalary, PAYE, nssfContribution, nhifContribution) {
+    let netSal;
+    netSal = grossSalary - (PAYE + nssfContribution + nhifContribution);
+    return netSal;
+}
+const netSalary = calculateNetSalary(grossSalary, PAYE, nssfContribution, nhifContribution);
 
 
 
-
+// Calling the functions to get all the returns
 grossSalaryCalculator(basicSalary, benefits);
 nhifCalculator(grossSalary);
 nssfCalculator(basicSalary);
 calculateTaxableIncome(grossSalary, nhifContribution, nssfContribution);
-calculatePAYE(taxableIncome);
-calculateNetSalary(grossSalary, PAYE);
+getPAYE(grossTax);
+calculateGrossTax(taxableIncome);
+calculateNetSalary(grossSalary, PAYE, nssfContribution, nhifContribution);
+
 
 
 console.log("BASIC SALARY: " + basicSalary);
@@ -148,4 +157,5 @@ console.log("GROSS SALARY: " + grossSalary);
 console.log("NHIF CONTIBUTION: " + nhifContribution);
 console.log("NSSF CONTRIBUTION: " + nssfContribution);
 console.log("TAXABLE INCOME: "+ taxableIncome);
+console.log("PAYE: " + PAYE);
 console.log("NET SALARY: " + netSalary);
