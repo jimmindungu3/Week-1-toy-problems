@@ -24,13 +24,13 @@ A simple program to take the marks scored by a student and return a grade. The p
     Contact
 
 ## INSTALLATION
-1. Clone the repository [here.](https://github.com/jimmindungu3/Week-1-toy-problems)
-2. Navigate to the project repository and cd into the programs folder:
+1. Clone the repository from [here.](https://github.com/jimmindungu3/Week-1-toy-problems)
+2. Navigate to the project repository and cd into the cloned folder:
         cd Week-1-toy-problems
 
 3. Enter "code ." in the terminal to open the folder in VS Code. The command may be different depending on the code editor you use.
 
-4. Call a function and pass the parameters as necessary. The programs will execute and give you desired results
+4. Call a function and pass the parameters as necessary. The programs will execute and give you desired results e.g. speedDetector(135);
 
 ## CONTRIBUTION
 Contributions are welcome. To contribute, follow the following steps:

@@ -1,5 +1,5 @@
-let basicSalary = 200000
-let benefits = 50000
+let basicSalary = 20000
+let benefits = 5000
 
 
 // Calculate gross salary

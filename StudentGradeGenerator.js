@@ -20,4 +20,4 @@ function studentGradeGenerator(studentScore) {
         studentGrade = "A";
     console.log(studentGrade); // This line is commented out. When uncommented, it will print studentGrade to the console .
 }
-studentGradeGenerator(77); // This line invokes the function studentGradeGenerator. StudentScore is passed as an argument in the brackets. in this case 75.
+studentGradeGenerator(75); // This line invokes the function studentGradeGenerator. StudentScore is passed as an argument in the brackets. in this case 75.
